@@ -1,0 +1,356 @@
+{
+  "ficha": 1,
+  "gerado": "2026-10-26T17:21:16.865Z",
+  "origem": "docs/FICHA-LP.md",
+  "padrao": "2.8.0",
+  "cliente": "Print Master",
+  "produto": "Locação de impressoras",
+  "composicao": ["linhas", "processo", "aplicacoes", "diferenciais"],
+  "site": {
+    "brand": "Print Master",
+    "brandShort": "Print Master",
+    "product": "Locação de impressoras",
+    "context": "empresas",
+    "url": "https://printmaster.net.br/lp-locacao-de-impressoras-para-empresas/",
+    "address": "Rua C56 nº 65, Qd. 103, Lt. 05, Setor Sudoeste, Goiânia/GO, CEP 74.305-350",
+    "privacyUrl": "",
+    "whatsapp": "",
+    "shortcodes": {
+      "chat": "[atendimento_chat id=\"default\"]",
+      "form": "[atendimento_form id=\"default-form\"]"
+    }
+  },
+  "campanha": {
+    "negatives": [],
+    "forbidden": [],
+    "mainKeyword": "locação de impressoras",
+    "areaAtendida": "Goiânia/GO, confirmada pelo endereço; Brasília não confirmada",
+    "onde": "selo",
+    "familias": [
+      {
+        "nome": "locacao-aluguel",
+        "termos": [
+          "aluguel de copiadora",
+          "aluguel de impressoras",
+          "locação de impressoras",
+          "locação de impressora",
+          "alugar impressora",
+          "empresa de aluguel de impressoras",
+          "empresas de locação de impressoras"
+        ],
+        "responde": "linhas"
+      },
+      {
+        "nome": "multifuncionais-copiadoras",
+        "termos": [
+          "locação de multifuncional",
+          "aluguel de multifuncional",
+          "locação de multifuncionais",
+          "locação de impressora multifuncional",
+          "aluguel de copiadora"
+        ],
+        "responde": "linhas"
+      },
+      {
+        "nome": "scanners",
+        "termos": ["aluguel de scanner", "locação de scanner"],
+        "responde": "linhas"
+      },
+      {
+        "nome": "impressao-colorida",
+        "termos": ["aluguel de impressora laser colorida"],
+        "responde": "linhas"
+      },
+      {
+        "nome": "marca-ricoh",
+        "termos": ["locação de impressora Ricoh"],
+        "responde": "linhas"
+      },
+      {
+        "nome": "outsourcing",
+        "termos": [
+          "outsourcing de impressão",
+          "outsourcing de impressoras",
+          "empresas de outsourcing de impressão",
+          "locação de impressoras outsourcing",
+          "serviço de outsourcing de impressão"
+        ],
+        "responde": null
+      },
+      {
+        "nome": "goiania",
+        "termos": [
+          "aluguel de impressoras Goiânia",
+          "aluguel de impressora Goiânia",
+          "locação de impressoras Goiânia",
+          "aluguel de impressora em Goiânia"
+        ],
+        "responde": null
+      },
+      {
+        "nome": "brasilia",
+        "termos": [
+          "locação de impressoras Brasília",
+          "aluguel de impressora Brasília",
+          "outsourcing de impressão em Brasília"
+        ],
+        "responde": null
+      }
+    ]
+  },
+  "publico": ["Administrativo", "Compras", "TI", "Diretoria"],
+  "marcas": {
+    "usarLogos": true,
+    "nomes": ["Ricoh", "Brother", "Canon", "Epson", "OKI", "Konica Minolta", "Zebra", "Kyocera"],
+    "autorizacao": "logos recortadas da arte que o próprio cliente publica no site atual; mockup aprovado em 26/10/2026"
+  },
+  "tokens": {
+    "padrao": false,
+    "cores": {
+      "primaria": "#064337",
+      "acao": "#027653",
+      "menta": "#61e5a9"
+    }
+  },
+  "conteudo": {
+    "title": null,
+    "description": "Locação de impressoras para empresas em Goiânia: multifuncionais laser Ricoh, copiadoras e scanners com manutenção inclusa e suporte especializado.",
+    "hero": {
+      "eyebrow": "Impressão corporativa",
+      "title": "Locação de impressoras para empresas",
+      "text": "Multifuncionais laser Ricoh, copiadoras e scanners para a rotina da sua empresa, com manutenção inclusa e sem investimento inicial.",
+      "points": [
+        {
+          "icon": "shield",
+          "line1": "Desde 2003",
+          "line2": "no mercado"
+        },
+        {
+          "icon": "wrench",
+          "line1": "Manutenção",
+          "line2": "inclusa"
+        },
+        {
+          "icon": "users",
+          "line1": "Suporte",
+          "line2": "especializado"
+        }
+      ]
+    },
+    "quote": {
+      "eyebrow": "Soluções para sua empresa",
+      "title": "A impressão ideal para o ritmo da sua empresa.",
+      "text": "Locação de impressoras com tecnologia, manutenção e suporte para simplificar a rotina da sua empresa.",
+      "trust": [
+        {
+          "icon": "wrench",
+          "label": "Manutenção inclusa"
+        },
+        {
+          "icon": "users",
+          "label": "Suporte remoto e presencial"
+        },
+        {
+          "icon": "pin",
+          "label": "Goiânia/GO"
+        }
+      ],
+      "lgpd": "Seus dados serão usados apenas para responder à sua solicitação."
+    }
+  },
+  "secoes": {
+    "linhas": {
+      "dataExport": "productLines",
+      "data": "linhas.ts",
+      "conteudo": {
+        "eyebrow": "Equipamentos para locação",
+        "title": "Impressoras, copiadoras e scanners para locação",
+        "text": "Encontre o equipamento ideal para a rotina da sua empresa.",
+        "help": {
+          "text": "Precisa de ajuda para escolher?",
+          "cta": "Fale com um especialista"
+        },
+        "itemCta": "Solicitar orçamento",
+        "brandsLabel": "Soluções com marcas reconhecidas",
+        "items": [
+          {
+            "id": "multifuncionais",
+            "tag": "Multifuncionais",
+            "title": "Multifuncionais Ricoh",
+            "description": "Imprima, copie e digitalize com praticidade.",
+            "features": ["Modelos mono e coloridos", "Tecnologia laser"],
+            "photo": "Impressora multifuncional laser Ricoh M 320F"
+          },
+          {
+            "id": "copiadoras",
+            "tag": "Alta produtividade",
+            "title": "Copiadoras",
+            "description": "Mais agilidade para grandes volumes de cópias.",
+            "features": ["Alta produtividade", "Manutenção inclusa"],
+            "photo": "Copiadora multifuncional Ricoh MP 4055"
+          },
+          {
+            "id": "scanners",
+            "tag": "Digitalização",
+            "title": "Scanners inteligentes",
+            "description": "Organize e digitalize documentos em rede.",
+            "features": ["Digitalização em rede", "Arquivo digital"],
+            "photo": "Scanner de documentos fi-7600"
+          },
+          {
+            "id": "conectados",
+            "tag": "Conectividade",
+            "title": "Impressão conectada",
+            "description": "Imprima pela rede e por dispositivos móveis.",
+            "features": ["Impressão pelo celular", "Conexão em rede"],
+            "photo": "Celular enviando impressão por rede sem fio para uma multifuncional Ricoh"
+          }
+        ]
+      }
+    },
+    "processo": {
+      "dataExport": "process",
+      "data": "processo.ts",
+      "conteudo": {
+        "eyebrow": "Como funciona",
+        "title": "Da escolha à impressão, cuidamos de cada etapa.",
+        "microcopy": "Manutenção e suporte inclusos",
+        "text": "Soluções sob medida para simplificar a rotina da sua empresa.",
+        "cta": "Fale com um especialista",
+        "steps": [
+          {
+            "id": "diagnostico",
+            "title": "Diagnóstico",
+            "description": "Entendemos o volume e as necessidades de impressão da sua empresa."
+          },
+          {
+            "id": "proposta",
+            "title": "Proposta sob medida",
+            "description": "Selecionamos os equipamentos e montamos sua proposta de locação."
+          },
+          {
+            "id": "instalacao",
+            "title": "Instalação",
+            "description": "Entregamos e configuramos tudo na rede da sua empresa."
+          },
+          {
+            "id": "suporte",
+            "title": "Suporte e manutenção",
+            "description": "Assistência técnica remota ou presencial, com manutenção inclusa."
+          }
+        ]
+      }
+    },
+    "aplicacoes": {
+      "dataExport": "applications",
+      "data": "aplicacoes.ts",
+      "conteudo": {
+        "eyebrow": "Soluções por segmento",
+        "title": "Impressão para a rotina de cada negócio",
+        "text": "Soluções de impressão, cópia e digitalização para empresas de todos os portes e segmentos.",
+        "cta": "Encontre a solução ideal",
+        "items": [
+          {
+            "id": "contabilidades",
+            "label": "Contabilidades",
+            "description": "Impressão e digitalização para a rotina de escritórios de contabilidade.",
+            "photo": "Mesa de contabilidade com notebook, calculadora e multifuncional ao fundo"
+          },
+          {
+            "id": "coworkings",
+            "label": "Coworkings",
+            "description": "Equipamentos compartilhados para quem trabalha em espaços de coworking.",
+            "photo": "Coworking com pessoas trabalhando e multifuncional ao fundo"
+          },
+          {
+            "id": "escolas",
+            "label": "Escolas e faculdades",
+            "description": "Impressão e cópias para escolas, faculdades e cursinhos.",
+            "photo": "Estudante escrevendo em biblioteca com multifuncional ao lado"
+          },
+          {
+            "id": "advocacia",
+            "label": "Escritórios de advocacia",
+            "description": "Impressão e digitalização de documentos para escritórios de advocacia.",
+            "photo": "Mesa de escritório de advocacia com livros, balança da justiça e multifuncional"
+          }
+        ]
+      }
+    },
+    "diferenciais": {
+      "dataExport": "why",
+      "data": "diferenciais.ts",
+      "conteudo": {
+        "eyebrow": "Soluções Print Master",
+        "titleLines": ["Impressão inteligente", "para sua empresa."],
+        "text": "Tecnologia, suporte e gestão para imprimir melhor, reduzir custos e simplificar a rotina da sua empresa.",
+        "cta": "Solicite uma proposta",
+        "scene": "Multifuncional Ricoh em escritório iluminado com plantas e estações de trabalho",
+        "reasons": [
+          {
+            "icon": "tag",
+            "title": "Redução de custos",
+            "description": "Economia em compra, manutenção, toners e suprimentos."
+          },
+          {
+            "icon": "wrench",
+            "title": "Assistência técnica",
+            "description": "Suporte remoto ou presencial quando precisar."
+          },
+          {
+            "icon": "zap",
+            "title": "Alta performance",
+            "description": "Modelos laser e multifuncionais, mono ou coloridos."
+          },
+          {
+            "icon": "sliders",
+            "title": "Gestão inteligente",
+            "description": "Contabilização e gerenciamento eletrônico de documentos."
+          },
+          {
+            "icon": "shield",
+            "title": "Sem investimento inicial",
+            "description": "Use equipamentos sem comprar ou imobilizar capital."
+          }
+        ]
+      }
+    }
+  },
+  "assets": {
+    "pendentes": []
+  },
+  "fora": {
+    "vitrine": {
+      "veredicto": "insuficiente",
+      "falta": "há 4 categorias de equipamento; a vitrine pede 6 a 24 produtos"
+    },
+    "especificacoes": {
+      "veredicto": "insuficiente",
+      "falta": "faltam modelos com especificações comparáveis (velocidade, formato, volume mensal)"
+    },
+    "identificar": {
+      "veredicto": "insuficiente",
+      "falta": "o comercial não informou os 6 dados que pede para dimensionar uma locação"
+    },
+    "situacoes": {
+      "veredicto": "insuficiente",
+      "falta": "o comercial não listou os gatilhos de contato mais comuns"
+    },
+    "segmentos": {
+      "veredicto": "insuficiente",
+      "falta": "são 6 contextos de uso sem vocabulário nem 3 equipamentos por setor; a seção pede 7 setores completos"
+    },
+    "clientes": {
+      "veredicto": "insuficiente",
+      "falta": "faltam 4 a 8 logos autorizadas e 3 números com fonte"
+    },
+    "perguntas": {
+      "veredicto": "insuficiente",
+      "falta": "o comercial não enviou a lista real de dúvidas, com respostas aprovadas"
+    },
+    "escopo": {
+      "veredicto": "nao-se-aplica",
+      "falta": "a oferta não é consolidação de compras de itens diferentes"
+    }
+  }
+}

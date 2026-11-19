@@ -1,0 +1,317 @@
+---
+/**
+ * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2), com o desvio visual aprovado para a Print Master
+ * (mockup de abertura, 26/10/2026 — docs/BRIEFING.md).
+ *
+ * Grid desktop: texto (--text-col) · janela da foto (1fr) · shortcode do chat (300px).
+ * A foto é clara e ocupa a altura do hero; o centro do grupo de impressoras (~53,5% da
+ * largura da imagem) é ancorado no centro da coluna 2, em qualquer largura de tela.
+ * No mobile a foto vira um card entre o texto e o chat.
+ * Abra a página com `?grid=1` para ver as colunas.
+ */
+import { Picture } from 'astro:assets'
+import Icon from './Icon.astro'
+import Button from './Button.astro'
+import { hero, cta } from '../data/content'
+
+const isDev = import.meta.env.DEV
+
+// O H1 continua sendo `hero.title` (é ele que o check:lp confere); o destaque só quebra linha.
+const at = hero.title.indexOf(hero.highlight)
+const titleBefore = at >= 0 ? hero.title.slice(0, at) : hero.title
+const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
+---
+
+<section
+  class="hero relative isolate overflow-hidden rounded-b-[40px] bg-[linear-gradient(180deg,#f7fdfb_0%,#ffffff_100%)] shadow-[0_28px_56px_-40px_rgba(6,67,55,0.45)] lg:rounded-b-[64px]"
+  data-hero
+>
+  {/* z2 — véus claros sobre a foto (desktop) */}
+  <div class="hero-veil-left pointer-events-none absolute inset-y-0 left-0 z-[2] hidden lg:block"></div>
+  <div class="hero-veil-right pointer-events-none absolute inset-y-0 right-0 z-[2] hidden lg:block"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-24 bg-gradient-to-t from-neutral-light to-transparent lg:block"></div>
+
+  {/* z2 — curvas menta da marca */}
+  <svg
+    class="pointer-events-none absolute -bottom-64 -left-72 z-[2] size-[560px] text-brand-mint/35"
+    viewBox="0 0 560 560"
+    fill="none"
+    stroke="currentColor"
+    aria-hidden="true"
+  >
+    <circle cx="280" cy="280" r="200" stroke-width="1.5"></circle>
+    <circle cx="280" cy="280" r="250" stroke-width="1"></circle>
+    <circle cx="280" cy="280" r="274" stroke-width="0.75"></circle>
+  </svg>
+  <span
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-32 -left-24 z-[2] size-[420px] rounded-full bg-brand-mint/15 blur-3xl"
+  ></span>
+
+  {/* conteúdo — sem `relative` no contêiner: no desktop a foto se posiciona pelo hero */}
+  <div class="hero-shell mx-auto max-w-page px-6 pt-10 pb-14 lg:px-10 lg:pt-16 lg:pb-20">
+    <div class="hero-grid grid items-center gap-y-10 lg:gap-x-8">
+      {/* Coluna 1 — textos */}
+      <div class="relative z-[3] max-w-xl lg:max-w-none">
+        <span class="inline-flex items-center gap-3 font-sans text-[12.5px] font-bold tracking-[0.2em] text-accent-orange uppercase">
+          <span aria-hidden="true" class="h-[2px] w-8 rounded-full bg-brand-mint"></span>
+          {hero.eyebrow}
+        </span>
+
+        <h1 class="mt-4 font-display text-[2.7rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-ink sm:text-[3.4rem] lg:text-[2.9rem] xl:text-[3.9rem]">
+          {titleBefore}
+          {at >= 0 && <span class="hero-highlight block text-accent-orange">{hero.highlight}</span>}
+          {titleAfter}
+        </h1>
+
+        <p class="mt-6 max-w-[30rem] font-sans text-[17px] leading-relaxed text-ink-soft">
+          {hero.text}
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-x-2 gap-y-3">
+          <Button
+            cta="hero-primary"
+            variant="primary"
+            class="rounded-full shadow-[0_18px_36px_-16px_rgba(2,118,83,0.8)]"
+          >
+            {cta.primary}
+          </Button>
+          <button
+            type="button"
+            data-cta="hero-secondary"
+            class="btn-slave-whats group inline-flex items-center gap-2.5 rounded-full px-4 py-3 font-sans text-[15px] font-semibold text-primary-dark transition-colors duration-200 hover:text-accent-orange"
+          >
+            <span class="flex size-8 items-center justify-center rounded-full bg-brand-mint-soft ring-1 ring-brand-mint/60 transition-colors duration-200 group-hover:bg-brand-mint/30">
+              <Icon name="search" class="size-4" />
+            </span>
+            {cta.secondary}
+          </button>
+        </div>
+
+        {/* 3 pontos de confiança — texto sempre em duas linhas */}
+        <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-4" aria-label="Destaques">
+          {hero.points.map((point) => (
+            <li class="flex items-center gap-3">
+              <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-mint-soft text-accent-orange ring-1 ring-brand-mint/50">
+                <Icon name={point.icon} class="size-[18px]" />
+              </span>
+              <span class="font-sans text-[13.5px] leading-snug font-semibold text-ink">
+                <span class="block whitespace-nowrap">{point.line1}</span>
+                <span class="block whitespace-nowrap text-ink-soft">{point.line2}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Coluna 2 — janela da foto (no mobile, o card da foto) */}
+      <div class="hero-window">
+        <div class="hero-photo z-[1]">
+          <Picture
+            src={hero.banner.src}
+            alt={hero.banner.alt}
+            widths={[640, 1024, 1536, 1870]}
+            sizes="(min-width: 1024px) 1600px, 100vw"
+            formats={['avif', 'webp']}
+            fallbackFormat="webp"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="hero-photo-img"
+            pictureAttributes={{ class: 'block h-full' }}
+          />
+        </div>
+      </div>
+
+      {/* Coluna 3 — shortcode do chat (300px) */}
+      {/*
+        Espaço do chat: vazio na prévia fora do WordPress (o texto cru do shortcode é apagado
+        pelo script abaixo); no WordPress o plugin troca o shortcode pelo chat. A coluna reserva
+        510px (a altura do widget do plugin) para a troca não deslocar o layout.
+      */}
+      <div
+        class="hero-chat relative z-[3] flex min-h-[510px] w-full flex-col lg:w-[300px]"
+        data-shortcode-slot
+      >
+        <slot name="shortcode">
+          {isDev ? (
+            <div
+              class="flex min-h-[430px] w-full flex-col gap-3 rounded-3xl border border-primary-dark/10 bg-neutral-light p-4 text-left shadow-[0_30px_60px_-30px_rgba(6,67,55,0.45)]"
+              aria-label="Mock do chat (só em desenvolvimento)"
+            >
+              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+                Mock · chat
+              </span>
+              <p class="font-display text-base font-bold text-ink">Fale com um especialista</p>
+              <div class="h-10 rounded-xl bg-neutral-gray-100" />
+              <div class="h-10 rounded-xl bg-neutral-gray-100" />
+              <div class="h-24 rounded-xl bg-neutral-gray-100" />
+              <div class="mt-auto h-11 rounded-full bg-accent-orange/80" />
+            </div>
+          ) : (
+            <div class="flex min-h-[430px] w-full flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-primary-dark/25 bg-neutral-light/85 p-6 text-center backdrop-blur-sm">
+              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+                Espaço reservado
+              </span>
+              <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
+            </div>
+          )}
+        </slot>
+      </div>
+    </div>
+  </div>
+
+  {/* Overlay de depuração: ?grid=1 */}
+  <div data-hero-grid hidden class="pointer-events-none absolute inset-0 z-[9]">
+    <div class="mx-auto h-full max-w-page px-6 lg:px-10">
+      <div class="hero-grid grid h-full lg:gap-x-8">
+        <div class="border-x border-dashed border-ink/50">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
+            col 1 · texto
+          </span>
+        </div>
+        <div class="hidden border-x-2 border-dashed border-accent-orange bg-accent-orange/5 lg:block">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
+            col 2 · janela da foto
+          </span>
+        </div>
+        <div class="hidden border-x border-dashed border-ink/50 lg:block">
+          <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
+            col 3 · 300px · shortcode
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Medidas que amarram as colunas, os véus e a foto ao mesmo eixo. */
+  .hero {
+    --text-col: 400px;
+    --chat-col: 300px;
+    --col-gap: 2rem;
+    --page-half: calc(var(--container-page) / 2);
+    --page-edge: max(0px, calc(50% - var(--page-half)));
+    /* Largura útil do contêiner (sem o px-10) e centro da coluna 2, a partir da borda da tela. */
+    --inner: calc(min(100%, var(--container-page)) - 80px);
+    --window-center: calc(
+      var(--page-edge) + 40px + var(--text-col) + var(--col-gap) +
+        (var(--inner) - var(--text-col) - var(--chat-col) - 2 * var(--col-gap)) / 2
+    );
+  }
+
+  /* Mobile: a foto é um card entre o texto e o chat, centrado nas impressoras. */
+  .hero-photo {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    border-radius: 1.5rem;
+    box-shadow:
+      0 0 0 1px rgb(6 67 55 / 0.08),
+      0 30px 60px -32px rgb(6 67 55 / 0.45);
+  }
+
+  .hero-photo :global(.hero-photo-img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 53% 70%;
+  }
+
+  @media (min-width: 1024px) {
+    /* Col 1 texto | Col 2 janela da foto | Col 3 shortcode 300px */
+    .hero-grid {
+      grid-template-columns: minmax(0, var(--text-col)) minmax(0, 1fr) var(--chat-col);
+    }
+
+    .hero {
+      min-height: 620px;
+    }
+
+    .hero-window {
+      align-self: stretch;
+    }
+
+    /* A foto cobre a altura do hero; o grupo de impressoras cai no centro da coluna 2. */
+    .hero-photo {
+      position: absolute;
+      inset-block: 0;
+      left: var(--window-center);
+      transform: translateX(-53.5%);
+      aspect-ratio: auto;
+      border-radius: 0;
+      box-shadow: none;
+      mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+    }
+
+    .hero-photo :global(.hero-photo-img) {
+      width: auto;
+      max-width: none;
+      height: 100%;
+    }
+
+    /* Claro sob o texto, dissolvendo antes das impressoras. */
+    .hero-veil-left {
+      width: calc(var(--page-edge) + 40px + var(--text-col) + 90px);
+      background: linear-gradient(
+        to right,
+        rgb(247 253 251 / 0.97) 0%,
+        rgb(247 253 251 / 0.92) calc(100% - 230px),
+        rgb(247 253 251 / 0.55) calc(100% - 110px),
+        transparent 100%
+      );
+    }
+
+    /* Claro atrás do chat, para o widget do plugin ler bem sobre a foto. */
+    .hero-veil-right {
+      width: calc(var(--page-edge) + 40px + var(--chat-col) + 70px);
+      background: linear-gradient(
+        to left,
+        rgb(247 253 251 / 0.88) 0%,
+        rgb(247 253 251 / 0.7) calc(100% - 150px),
+        transparent 100%
+      );
+    }
+  }
+
+  /* 1024–1279px: a janela é estreita; o grupo de impressoras desliza para a direita, sob o
+     chat, para não passar por trás do texto. */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .hero-photo {
+      transform: translateX(-44%);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero {
+      --text-col: 520px;
+      min-height: 660px;
+    }
+  }
+</style>
+
+<script>
+  // Overlay de depuração do grid: abra a página com ?grid=1
+  if (new URLSearchParams(location.search).get('grid') === '1') {
+    document.querySelectorAll<HTMLElement>('[data-hero-grid]').forEach((el) => {
+      el.hidden = false
+    })
+  }
+
+  // Fora do WordPress os shortcodes (chat do hero, formulário da cotação) chegam como texto
+  // cru ("[atendimento_chat …]"): apaga o texto e deixa o espaço reservado vazio. No WordPress
+  // o plugin já os trocou e nada muda.
+  if (!/wordpress|printmaster\.net\.br/i.test(location.hostname)) {
+    document.querySelectorAll<HTMLElement>('[data-shortcode-slot]').forEach((holder) => {
+      const nodes = [...holder.childNodes]
+      const text = nodes
+        .map((n) => n.textContent ?? '')
+        .join('')
+        .trim()
+      const onlyText = nodes.every((n) => n.nodeType === Node.TEXT_NODE)
+      if (onlyText && /^\[[^\]]+\]$/.test(text)) nodes.forEach((n) => n.remove())
+    })
+  }
+</script>
