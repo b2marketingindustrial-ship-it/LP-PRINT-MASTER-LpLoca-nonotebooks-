@@ -1,8 +1,8 @@
 /**
  * Dados da seção "Como funciona" (biblioteca B2, fase: apoio).
  *
- * Variante local da Print Master (mockup aprovado em 26/10/2026, docs/BRIEFING.md):
- * cabeçalho claro com botão à direita e 4 cards verde-escuros numerados, sem ícones.
+ * Variante local da Print Master, LP de notebooks (19/11/2026, docs/BRIEFING.md):
+ * cabeçalho com botão à direita e 4 cards escuros numerados, sem ícones.
  * O contrato repinado (sem `icon`) está em `lp.manifest.json`.
  */
 
@@ -30,30 +30,30 @@ export interface Process {
 
 export const process: Process = {
   eyebrow: 'Como funciona',
-  title: 'Da escolha à impressão, cuidamos de cada etapa.',
-  text: 'Soluções sob medida para simplificar a rotina da sua empresa.',
+  title: 'Do pedido à entrega, cuidamos de cada etapa.',
+  text: 'Uma proposta sob medida para equipar a sua equipe sem complicação.',
   cta: 'Fale com um especialista',
-  microcopy: 'Manutenção e suporte inclusos',
+  microcopy: 'Sem investimento na compra',
   steps: [
     {
       id: 'diagnostico',
       title: 'Diagnóstico',
-      description: 'Entendemos o volume e as necessidades de impressão da sua empresa.',
+      description: 'Entendemos quantos notebooks sua equipe precisa e para qual rotina.',
     },
     {
       id: 'proposta',
       title: 'Proposta sob medida',
-      description: 'Selecionamos os equipamentos e montamos sua proposta de locação.',
+      description: 'Indicamos os modelos e montamos a sua proposta de locação.',
     },
     {
-      id: 'instalacao',
-      title: 'Instalação',
-      description: 'Entregamos e configuramos tudo na rede da sua empresa.',
+      id: 'entrega',
+      title: 'Entrega',
+      description: 'Levamos os notebooks até a sua empresa para a equipe começar.',
     },
     {
       id: 'suporte',
-      title: 'Suporte e manutenção',
-      description: 'Assistência técnica remota ou presencial, com manutenção inclusa.',
+      title: 'Suporte especializado',
+      description: 'Acompanhamos a sua equipe com suporte durante toda a locação.',
     },
   ],
 }

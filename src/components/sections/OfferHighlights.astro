@@ -1,0 +1,242 @@
+---
+/**
+ * Ofertas em destaque — fase "oferta". Seção local da LP de notebooks (19/11/2026,
+ * docs/BRIEFING.md), fora da biblioteca B2.
+ *
+ * Fitas de Black Friday cruzadas no topo, como nos posts; à esquerda a oferta em texto
+ * (produto com a barra menta, preço em amarelo, botão e nota da promoção); à direita os
+ * dois posts da campanha como cards-botão — o card inteiro é o CTA.
+ * Fundo e respiro vêm da composição via `tone`/`rhythm`.
+ */
+import { Image } from 'astro:assets'
+import Section from '@components/Section.astro'
+import Icon from '@components/Icon.astro'
+import Eyebrow from '@components/Eyebrow.astro'
+import Button from '@components/Button.astro'
+import type { SectionProps } from '@lib/layout'
+import { offers } from '@data/sections/ofertas'
+
+type Props = SectionProps
+
+const { tone, rhythm } = Astro.props
+
+const at = offers.title.indexOf(offers.highlight)
+const titleBefore = at >= 0 ? offers.title.slice(0, at) : offers.title
+const titleAfter = at >= 0 ? offers.title.slice(at + offers.highlight.length) : ''
+
+// Repetições suficientes para cobrir 120vw em telas largas; a lista sai duplicada para o loop.
+const tapeWords = Array.from({ length: 8 }, () => offers.tape)
+---
+
+<Section
+  id="ofertas"
+  tone={tone}
+  rhythm={rhythm}
+  container={false}
+  class="relative overflow-hidden"
+  data-ofertas
+>
+  {/* Fitas cruzadas de Black Friday */}
+  <div
+    aria-hidden="true"
+    class="ofertas-tapes pointer-events-none relative h-28 select-none sm:h-32"
+  >
+    {['back', 'front'].map((kind) => (
+      <div class={`ofertas-tape ofertas-tape-${kind}`}>
+        <div class="ofertas-tape-track">
+          {[0, 1].map(() => (
+            <span class="ofertas-tape-run">
+              {tapeWords.map((word) => (
+                <span class="ofertas-tape-word">{word}</span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="relative mx-auto max-w-page px-6 pt-10 lg:px-10 lg:pt-14">
+    <span
+      aria-hidden="true"
+      class="pointer-events-none absolute top-1/3 right-0 size-[520px] rounded-full bg-neon/10 blur-3xl"
+    ></span>
+
+    <div class="relative grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-14">
+      {/* Oferta em texto */}
+      <div>
+        <Eyebrow>{offers.eyebrow}</Eyebrow>
+        <h2 class="mt-4 font-display text-[2.2rem] leading-[1.05] font-extrabold tracking-[-0.03em] text-white uppercase sm:text-5xl lg:text-[3rem]">
+          {titleBefore}
+          {at >= 0 && <span class="text-mint glow-neon">{offers.highlight}</span>}
+          {titleAfter}
+        </h2>
+
+        <div class="mt-8 border-l-[3px] border-mint pl-4">
+          <p class="font-display text-2xl leading-tight font-extrabold text-mint">
+            {offers.product.name}
+          </p>
+          <p class="mt-1 font-sans text-[16px] leading-snug text-white/80">{offers.product.spec}</p>
+        </div>
+
+        <p class="mt-7 font-sans text-[17px] text-white/80">{offers.price.from}</p>
+        <p class="flex items-start gap-1 font-display leading-none font-extrabold text-sun glow-sun">
+          <span class="mt-[0.35em] text-4xl sm:text-5xl">{offers.price.currency}</span>
+          <span class="text-[4.5rem] tracking-[-0.04em] sm:text-[5.5rem]">
+            {offers.price.value}
+          </span>
+          <span class="text-4xl sm:text-5xl">{offers.price.mark}</span>
+        </p>
+
+        <p class="mt-6 font-sans text-[17px] font-semibold text-white">{offers.text}</p>
+        <span aria-hidden="true" class="mt-4 block h-[3px] w-16 rounded-full bg-neon"></span>
+
+        <div class="mt-8 flex flex-col items-start gap-3">
+          <Button
+            cta="ofertas-destaque"
+            variant="primary"
+            class="rounded-full shadow-[0_18px_40px_-14px_rgba(62,227,159,0.75)]"
+          >
+            {offers.cta}
+          </Button>
+          <p class="font-sans text-[13px] text-white/60">{offers.note}</p>
+        </div>
+      </div>
+
+      {/* Os dois posts da campanha */}
+      <ul class="grid gap-6 sm:grid-cols-2 lg:gap-7" aria-label={offers.eyebrow}>
+        {offers.posts.map((post, i) => (
+          <li class:list={[i === 1 && 'sm:mt-14']}>
+            <button
+              type="button"
+              data-cta={`ofertas-${post.id}`}
+              class="btn-slave-whats ofertas-card group flex w-full flex-col overflow-hidden rounded-[22px] bg-night-700 text-left ring-1 ring-white/10 shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_34px_70px_-30px_rgba(62,227,159,0.45)] hover:ring-mint/50"
+            >
+              <span class="relative block aspect-[4/5] overflow-hidden">
+                <Image
+                  src={post.photo.src}
+                  alt={post.photo.alt}
+                  widths={[420, 640, 860]}
+                  sizes="(min-width: 1024px) 340px, (min-width: 640px) 45vw, 90vw"
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                />
+              </span>
+              <span class="flex items-center justify-between gap-4 px-5 py-4">
+                <span class="min-w-0">
+                  <span class="block font-display text-[15px] leading-snug font-extrabold text-white">
+                    {post.label}
+                  </span>
+                  <span class="mt-1 block font-sans text-[13px] font-bold text-mint">
+                    {post.cta}
+                  </span>
+                </span>
+                <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-neon/10 text-neon ring-1 ring-neon/40 transition-[background-color,color,transform] duration-300 group-hover:translate-x-0.5 group-hover:bg-neon group-hover:text-night-950">
+                  <Icon name="arrow-right" class="size-4" />
+                </span>
+              </span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>
+
+<style>
+  /* Brilho verde sobre o tom da seção, como a luz atrás dos notebooks nos posts */
+  :global([data-ofertas]) {
+    background-image:
+      radial-gradient(900px 480px at 80% 40%, rgb(62 227 159 / 0.1) 0%, transparent 70%),
+      linear-gradient(180deg, var(--color-night-950) 0%, var(--color-night-900) 40%);
+  }
+
+  .ofertas-tape {
+    position: absolute;
+    left: -10vw;
+    width: 120vw;
+    overflow: hidden;
+    border-block: 3px solid rgb(0 0 0 / 0.85);
+    box-shadow: 0 14px 30px -12px rgb(0 0 0 / 0.8);
+  }
+
+  /* Fita da frente: amarela com letra preta. Fita de trás: preta com letra clara. */
+  /* No celular a rotação desloca pouco: as fitas ficam mais afastadas para as duas aparecerem. */
+  .ofertas-tape-front {
+    top: 44%;
+    transform: rotate(-2.5deg);
+    background: linear-gradient(180deg, #ffe14a 0%, var(--color-sun) 55%, #e9bf00 100%);
+    color: #0b0b0b;
+  }
+
+  .ofertas-tape-back {
+    top: 14%;
+    transform: rotate(2.2deg);
+    background: linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .ofertas-tape-track {
+    display: flex;
+    width: max-content;
+    animation: ofertas-tape 38s linear infinite;
+  }
+
+  .ofertas-tape-back .ofertas-tape-track {
+    animation-direction: reverse;
+    animation-duration: 46s;
+  }
+
+  .ofertas-tape-run {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  .ofertas-tape-word {
+    padding: 0.55rem 1.6rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 800;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 640px) {
+    .ofertas-tape-front {
+      top: 34%;
+    }
+
+    .ofertas-tape-back {
+      top: 30%;
+    }
+  }
+
+  @keyframes ofertas-tape {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ofertas-tape-track {
+      animation: none;
+    }
+
+    .ofertas-card,
+    .ofertas-card * {
+      transition: none !important;
+    }
+
+    .ofertas-card:hover {
+      transform: none;
+    }
+  }
+</style>

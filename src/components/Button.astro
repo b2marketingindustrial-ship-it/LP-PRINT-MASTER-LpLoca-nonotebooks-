@@ -3,7 +3,8 @@
  * Botão de CTA do padrão B2.
  * - Sempre <button type="button"> com `btn-slave-whats`: o plugin de atendimento do WordPress captura o clique.
  * - `cta` é obrigatório e vira `data-cta` para rastreamento (convenção: `{secao}-{elemento}`).
- * - Cantos retos, ícone arrow-right à direita por padrão.
+ * - Ícone arrow-right à direita por padrão. Na LP de notebooks o primário é verde neon com
+ *   texto escuro, como os destaques dos posts da campanha.
  */
 import Icon from './Icon.astro'
 import type { IconName } from '../data/icons'
@@ -30,12 +31,12 @@ const {
 } = Astro.props
 
 const base =
-  'inline-flex items-center justify-center gap-2.5 px-6 py-3.5 font-sans text-[15px] font-semibold transition-colors duration-200'
+  'inline-flex items-center justify-center gap-2.5 px-6 py-3.5 font-sans text-[15px] font-bold transition-colors duration-200'
 
 const variants = {
-  primary: 'bg-accent-orange text-neutral-light hover:bg-accent-orange-dark',
-  'outline-light': 'border border-neutral-light/35 text-neutral-light hover:bg-neutral-light/10',
-  'outline-dark': 'border border-ink/25 text-ink hover:bg-ink/5',
+  primary: 'bg-neon text-night-950 hover:bg-mint',
+  'outline-light': 'border border-white/35 text-white hover:bg-white/10',
+  'outline-dark': 'border border-mint/50 text-mint hover:bg-mint/10',
 }
 ---
 

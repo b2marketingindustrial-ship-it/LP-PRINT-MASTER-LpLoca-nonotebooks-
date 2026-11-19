@@ -84,10 +84,14 @@ export const phaseById = (id) => PHASES.find((p) => p.id === id)
 
 /* -------------------------------------------------------------------- tons */
 
-/** Fundos disponíveis para seção do meio. Navy é reservado à estrutura fixa. */
+/**
+ * Fundos disponíveis para seção do meio. Navy é reservado à estrutura fixa.
+ * LP de notebooks (19/11/2026): a página é escura, então "light" e "gray" viraram os dois
+ * fundos escuros da paleta dos posts — os nomes ficam para o contrato do padrão.
+ */
 export const TONES = {
-  light: { class: 'bg-neutral-light', label: 'branco' },
-  gray: { class: 'bg-neutral-gray-100', label: 'cinza-100' },
+  light: { class: 'bg-night-900', label: 'escuro' },
+  gray: { class: 'bg-night-800', label: 'escuro alternado' },
 }
 
 /** Tom da seção de Cotação (estrutura fixa) — a sequência tem de desembocar nele. */

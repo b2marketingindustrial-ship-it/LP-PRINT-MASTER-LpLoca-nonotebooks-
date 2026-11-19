@@ -1,9 +1,9 @@
 {
-  "name": "lp-print-master-locacao-de-impressoras",
+  "name": "lp-print-master-locacao-de-notebooks",
   "type": "module",
   "version": "2.8.0",
   "private": true,
-  "description": "Landing page Print Master — Locacao de impressoras. Padrão B2 v2.8.0.",
+  "description": "Landing page Print Master — Locacao de notebooks. Padrão B2 v2.8.0.",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

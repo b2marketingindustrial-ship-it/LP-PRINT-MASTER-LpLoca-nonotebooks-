@@ -1,9 +1,10 @@
 /**
  * Dados da seção "Aplicações" (biblioteca B2, fase: prova).
  *
- * Variante local da Print Master (mockup aprovado em 26/10/2026, docs/BRIEFING.md):
- * cabeçalho à esquerda com link à direita e 4 cards-botão com foto 6:5 numerada e
- * painel verde-escuro. O card inteiro é o CTA.
+ * Variante local da Print Master, LP de notebooks (19/11/2026, docs/BRIEFING.md):
+ * cabeçalho à esquerda com link à direita e 4 cards-botão com arte 6:5 numerada (ícone em
+ * neon sobre o círculo de luz dos posts) e painel escuro. O card inteiro é o CTA.
+ * Os segmentos são momentos de uso, não clientes — inferidos, validar com o comercial.
  */
 import type { Photo } from '@data/types'
 
@@ -20,41 +21,35 @@ export interface Application {
 }
 
 export const applications = {
-  eyebrow: 'Soluções por segmento',
-  title: 'Impressão para a rotina de cada negócio',
-  text: 'Soluções de impressão, cópia e digitalização para empresas de todos os portes e segmentos.',
+  eyebrow: 'Soluções por necessidade',
+  title: 'Notebooks para cada momento da sua empresa',
+  text: 'Locação de notebooks para empresas de todos os portes, do primeiro colaborador à equipe inteira.',
   /** Link à direita do cabeçalho. */
   cta: 'Encontre a solução ideal',
   items: [
     {
-      id: 'contabilidades',
-      label: 'Contabilidades',
-      description: 'Impressão e digitalização para a rotina de escritórios de contabilidade.',
-      photo: {
-        src: app1,
-        alt: 'Mesa de contabilidade com notebook, calculadora e multifuncional ao fundo',
-      },
+      id: 'escritorios',
+      label: 'Escritórios e administrativo',
+      description: 'Notebooks para a rotina administrativa, financeira e comercial.',
+      photo: { src: app1, alt: 'Ícone de prédio comercial em neon sobre círculo de luz verde' },
     },
     {
-      id: 'coworkings',
-      label: 'Coworkings',
-      description: 'Equipamentos compartilhados para quem trabalha em espaços de coworking.',
-      photo: { src: app2, alt: 'Coworking com pessoas trabalhando e multifuncional ao fundo' },
+      id: 'novos-colaboradores',
+      label: 'Novos colaboradores',
+      description: 'Equipamento pronto para quem está chegando à sua equipe.',
+      photo: { src: app2, alt: 'Ícone de equipe em neon sobre círculo de luz verde' },
     },
     {
-      id: 'escolas',
-      label: 'Escolas e faculdades',
-      description: 'Impressão e cópias para escolas, faculdades e cursinhos.',
-      photo: { src: app3, alt: 'Estudante escrevendo em biblioteca com multifuncional ao lado' },
+      id: 'projetos',
+      label: 'Projetos temporários',
+      description: 'Mais notebooks para demandas com prazo definido, sem comprar.',
+      photo: { src: app3, alt: 'Ícone de relógio em neon sobre círculo de luz verde' },
     },
     {
-      id: 'advocacia',
-      label: 'Escritórios de advocacia',
-      description: 'Impressão e digitalização de documentos para escritórios de advocacia.',
-      photo: {
-        src: app4,
-        alt: 'Mesa de escritório de advocacia com livros, balança da justiça e multifuncional',
-      },
+      id: 'treinamentos',
+      label: 'Treinamentos e eventos',
+      description: 'Notebooks para turmas, treinamentos internos e eventos corporativos.',
+      photo: { src: app4, alt: 'Ícone de tela de apresentação em neon sobre círculo de luz verde' },
     },
   ],
 } as const satisfies {

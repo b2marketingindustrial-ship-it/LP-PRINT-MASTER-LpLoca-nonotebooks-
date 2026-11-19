@@ -1,12 +1,13 @@
 ---
 /**
- * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2), com o desvio visual aprovado para a Print Master
- * (mockup de abertura, 26/10/2026 — docs/BRIEFING.md).
+ * ESTRUTURA FIXA (PROMPT-PADRAO-LP 4.1.2), com o visual dos posts da campanha de notebooks
+ * (19/11/2026 — docs/BRIEFING.md): fundo quase preto, "notebooks" em amarelo, selo de Black
+ * Friday, marca d'água vertical "PRINT MASTER" e o anel do logo ao fundo, como nos posts.
  *
  * Grid desktop: texto (--text-col) · janela da foto (1fr) · shortcode do chat (300px).
- * A foto é clara e ocupa a altura do hero; o centro do grupo de impressoras (~53,5% da
- * largura da imagem) é ancorado no centro da coluna 2, em qualquer largura de tela.
- * No mobile a foto vira um card entre o texto e o chat.
+ * A foto (notebooks sobre o círculo de luz verde, recortada do post) ocupa a altura do hero;
+ * o centro do grupo de notebooks (~53,5% da largura da imagem) é ancorado no centro da
+ * coluna 2, em qualquer largura de tela. No mobile a foto vira um card entre o texto e o chat.
  * Abra a página com `?grid=1` para ver as colunas.
  */
 import { Picture } from 'astro:assets'
@@ -23,29 +24,37 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
 ---
 
 <section
-  class="hero relative isolate overflow-hidden rounded-b-[40px] bg-[linear-gradient(180deg,#f7fdfb_0%,#ffffff_100%)] shadow-[0_28px_56px_-40px_rgba(6,67,55,0.45)] lg:rounded-b-[64px]"
+  class="hero relative isolate overflow-hidden rounded-b-[40px] border-b border-mint/25 bg-night-900 shadow-[0_40px_90px_-50px_rgba(62,227,159,0.45)] lg:rounded-b-[64px]"
   data-hero
 >
-  {/* z2 — véus claros sobre a foto (desktop) */}
+  {/* z2 — véus escuros sobre a foto (desktop) */}
   <div class="hero-veil-left pointer-events-none absolute inset-y-0 left-0 z-[2] hidden lg:block"></div>
   <div class="hero-veil-right pointer-events-none absolute inset-y-0 right-0 z-[2] hidden lg:block"></div>
-  <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-24 bg-gradient-to-t from-neutral-light to-transparent lg:block"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 z-[2] hidden h-24 bg-gradient-to-t from-night-900 to-transparent lg:block"></div>
 
-  {/* z2 — curvas menta da marca */}
+  {/* z2 — marca d'água vertical, como no post */}
+  <span
+    aria-hidden="true"
+    class="hero-watermark pointer-events-none absolute top-1/2 -left-3 z-[2] hidden font-display text-[8.5rem] leading-none font-extrabold tracking-[0.04em] whitespace-nowrap text-white/[0.035] select-none sm:block xl:text-[10rem]"
+  >
+    PRINT MASTER
+  </span>
+
+  {/* z2 — anel do logo ao fundo, no canto do chat */}
   <svg
-    class="pointer-events-none absolute -bottom-64 -left-72 z-[2] size-[560px] text-brand-mint/35"
-    viewBox="0 0 560 560"
+    class="pointer-events-none absolute -top-40 -right-44 z-[2] size-[560px] text-mint/[0.07]"
+    viewBox="0 0 120 120"
     fill="none"
     stroke="currentColor"
+    stroke-width="5"
     aria-hidden="true"
   >
-    <circle cx="280" cy="280" r="200" stroke-width="1.5"></circle>
-    <circle cx="280" cy="280" r="250" stroke-width="1"></circle>
-    <circle cx="280" cy="280" r="274" stroke-width="0.75"></circle>
+    <circle cx="60" cy="60" r="54"></circle>
+    <path d="m46 34 6-6h16l6 6M34 46l-6 6v16l6 6M86 46l6 6v16l-6 6M46 86l6 6h16l6-6M60 50v20"></path>
   </svg>
   <span
     aria-hidden="true"
-    class="pointer-events-none absolute -top-32 -left-24 z-[2] size-[420px] rounded-full bg-brand-mint/15 blur-3xl"
+    class="pointer-events-none absolute -top-40 -left-28 z-[2] size-[460px] rounded-full bg-neon/10 blur-3xl"
   ></span>
 
   {/* conteúdo — sem `relative` no contêiner: no desktop a foto se posiciona pelo hero */}
@@ -53,37 +62,47 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
     <div class="hero-grid grid items-center gap-y-10 lg:gap-x-8">
       {/* Coluna 1 — textos */}
       <div class="relative z-[3] max-w-xl lg:max-w-none">
-        <span class="inline-flex items-center gap-3 font-sans text-[12.5px] font-bold tracking-[0.2em] text-accent-orange uppercase">
-          <span aria-hidden="true" class="h-[2px] w-8 rounded-full bg-brand-mint"></span>
+        {hero.promo && (
+          <p class="mb-6 inline-flex max-w-full items-center gap-2.5 rounded-2xl border border-sun/35 bg-sun/[0.07] py-1 pr-3 pl-1 font-sans text-[12px] leading-snug font-semibold text-white/90 sm:gap-3 sm:rounded-full sm:pr-4 sm:text-[13px]">
+            <span class="shrink-0 rounded-full bg-sun px-2.5 py-1 text-[10.5px] font-extrabold tracking-[0.1em] text-night-950 uppercase sm:px-3 sm:text-[11px] sm:tracking-[0.12em]">
+              {hero.promo.tag}
+            </span>
+            <span>{hero.promo.text}</span>
+          </p>
+        )}
+
+        <span class="flex items-center gap-3 font-sans text-[12.5px] font-bold tracking-[0.2em] text-mint uppercase">
+          <span
+            aria-hidden="true"
+            class="h-[2px] w-8 rounded-full bg-neon shadow-[0_0_10px_rgba(62,227,159,0.8)]"
+          ></span>
           {hero.eyebrow}
         </span>
 
-        <h1 class="mt-4 font-display text-[2.7rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-ink sm:text-[3.4rem] lg:text-[2.9rem] xl:text-[3.9rem]">
+        <h1 class="mt-4 font-display text-[2.7rem] leading-[1.04] font-extrabold tracking-[-0.03em] text-white sm:text-[3.4rem] lg:text-[2.9rem] xl:text-[3.9rem]">
           {titleBefore}
-          {at >= 0 && <span class="hero-highlight block text-accent-orange">{hero.highlight}</span>}
+          {at >= 0 && <span class="hero-highlight block text-sun glow-sun">{hero.highlight}</span>}
           {titleAfter}
         </h1>
 
-        <p class="mt-6 max-w-[30rem] font-sans text-[17px] leading-relaxed text-ink-soft">
+        <p class="mt-6 max-w-[30rem] font-sans text-[17px] leading-relaxed text-white/70">
           {hero.text}
         </p>
 
-        <div class="mt-8 flex flex-wrap items-center gap-x-2 gap-y-3">
+        <div class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-3">
           <Button
             cta="hero-primary"
             variant="primary"
-            class="rounded-full shadow-[0_18px_36px_-16px_rgba(2,118,83,0.8)]"
+            class="rounded-full shadow-[0_18px_40px_-14px_rgba(62,227,159,0.75)]"
           >
             {cta.primary}
           </Button>
           <button
             type="button"
             data-cta="hero-secondary"
-            class="btn-slave-whats group inline-flex items-center gap-2.5 rounded-full px-4 py-3 font-sans text-[15px] font-semibold text-primary-dark transition-colors duration-200 hover:text-accent-orange"
+            class="btn-slave-whats group inline-flex items-center gap-2.5 rounded-full border-2 border-sun/80 px-5 py-3 font-sans text-[15px] font-bold text-sun transition-colors duration-200 hover:bg-sun hover:text-night-950"
           >
-            <span class="flex size-8 items-center justify-center rounded-full bg-brand-mint-soft ring-1 ring-brand-mint/60 transition-colors duration-200 group-hover:bg-brand-mint/30">
-              <Icon name="search" class="size-4" />
-            </span>
+            <Icon name="chat" class="size-4" />
             {cta.secondary}
           </button>
         </div>
@@ -92,12 +111,12 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
         <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-4" aria-label="Destaques">
           {hero.points.map((point) => (
             <li class="flex items-center gap-3">
-              <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-mint-soft text-accent-orange ring-1 ring-brand-mint/50">
+              <span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-neon/10 text-neon ring-1 ring-neon/40">
                 <Icon name={point.icon} class="size-[18px]" />
               </span>
-              <span class="font-sans text-[13.5px] leading-snug font-semibold text-ink">
+              <span class="font-sans text-[13.5px] leading-snug font-semibold text-white">
                 <span class="block whitespace-nowrap">{point.line1}</span>
-                <span class="block whitespace-nowrap text-ink-soft">{point.line2}</span>
+                <span class="block whitespace-nowrap text-white/60">{point.line2}</span>
               </span>
             </li>
           ))}
@@ -136,24 +155,24 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
         <slot name="shortcode">
           {isDev ? (
             <div
-              class="flex min-h-[430px] w-full flex-col gap-3 rounded-3xl border border-primary-dark/10 bg-neutral-light p-4 text-left shadow-[0_30px_60px_-30px_rgba(6,67,55,0.45)]"
+              class="flex min-h-[430px] w-full flex-col gap-3 rounded-3xl border border-white/10 bg-night-800/90 p-4 text-left shadow-[0_30px_60px_-30px_rgba(0,0,0,0.8)] backdrop-blur-sm"
               aria-label="Mock do chat (só em desenvolvimento)"
             >
-              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-mint uppercase">
                 Mock · chat
               </span>
-              <p class="font-display text-base font-bold text-ink">Fale com um especialista</p>
-              <div class="h-10 rounded-xl bg-neutral-gray-100" />
-              <div class="h-10 rounded-xl bg-neutral-gray-100" />
-              <div class="h-24 rounded-xl bg-neutral-gray-100" />
-              <div class="mt-auto h-11 rounded-full bg-accent-orange/80" />
+              <p class="font-display text-base font-bold text-white">Fale com um especialista</p>
+              <div class="h-10 rounded-xl bg-white/5" />
+              <div class="h-10 rounded-xl bg-white/5" />
+              <div class="h-24 rounded-xl bg-white/5" />
+              <div class="mt-auto h-11 rounded-full bg-neon/80" />
             </div>
           ) : (
-            <div class="flex min-h-[430px] w-full flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-primary-dark/25 bg-neutral-light/85 p-6 text-center backdrop-blur-sm">
-              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-accent-orange uppercase">
+            <div class="flex min-h-[430px] w-full flex-col items-center justify-center gap-3 rounded-3xl border border-dashed border-white/20 bg-night-800/60 p-6 text-center backdrop-blur-sm">
+              <span class="font-sans text-[11px] font-semibold tracking-[0.18em] text-mint uppercase">
                 Espaço reservado
               </span>
-              <p class="font-display text-lg font-bold text-ink">Shortcode — 300px</p>
+              <p class="font-display text-lg font-bold text-white">Shortcode — 300px</p>
             </div>
           )}
         </slot>
@@ -165,17 +184,17 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
   <div data-hero-grid hidden class="pointer-events-none absolute inset-0 z-[9]">
     <div class="mx-auto h-full max-w-page px-6 lg:px-10">
       <div class="hero-grid grid h-full lg:gap-x-8">
-        <div class="border-x border-dashed border-ink/50">
+        <div class="border-x border-dashed border-white/50">
           <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
             col 1 · texto
           </span>
         </div>
-        <div class="hidden border-x-2 border-dashed border-accent-orange bg-accent-orange/5 lg:block">
+        <div class="hidden border-x-2 border-dashed border-neon bg-neon/5 lg:block">
           <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
             col 2 · janela da foto
           </span>
         </div>
-        <div class="hidden border-x border-dashed border-ink/50 lg:block">
+        <div class="hidden border-x border-dashed border-white/50 lg:block">
           <span class="m-2 inline-block bg-black/60 px-2 font-mono text-[11px] text-white">
             col 3 · 300px · shortcode
           </span>
@@ -201,15 +220,21 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
     );
   }
 
-  /* Mobile: a foto é um card entre o texto e o chat, centrado nas impressoras. */
+  /* Marca d'água lida de baixo para cima, como no post. */
+  .hero-watermark {
+    writing-mode: vertical-rl;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  /* Mobile: a foto é um card entre o texto e o chat, centrado nos notebooks. */
   .hero-photo {
     position: relative;
     overflow: hidden;
     aspect-ratio: 16 / 11;
     border-radius: 1.5rem;
     box-shadow:
-      0 0 0 1px rgb(6 67 55 / 0.08),
-      0 30px 60px -32px rgb(6 67 55 / 0.45);
+      0 0 0 1px rgb(103 223 167 / 0.18),
+      0 30px 60px -32px rgb(62 227 159 / 0.45);
   }
 
   .hero-photo :global(.hero-photo-img) {
@@ -217,7 +242,10 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 53% 70%;
+    object-position: 53% 58%;
+    /* No card, o grupo de notebooks ocupa só o centro da imagem larga: aproxima. */
+    transform: scale(1.6);
+    transform-origin: 53.5% 58%;
   }
 
   @media (min-width: 1024px) {
@@ -234,7 +262,7 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
       align-self: stretch;
     }
 
-    /* A foto cobre a altura do hero; o grupo de impressoras cai no centro da coluna 2. */
+    /* A foto cobre a altura do hero; o grupo de notebooks cai no centro da coluna 2. */
     .hero-photo {
       position: absolute;
       inset-block: 0;
@@ -243,40 +271,41 @@ const titleAfter = at >= 0 ? hero.title.slice(at + hero.highlight.length) : ''
       aspect-ratio: auto;
       border-radius: 0;
       box-shadow: none;
-      mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%);
     }
 
     .hero-photo :global(.hero-photo-img) {
       width: auto;
       max-width: none;
       height: 100%;
+      transform: none;
     }
 
-    /* Claro sob o texto, dissolvendo antes das impressoras. */
+    /* Escuro sob o texto, dissolvendo antes dos notebooks. */
     .hero-veil-left {
       width: calc(var(--page-edge) + 40px + var(--text-col) + 90px);
       background: linear-gradient(
         to right,
-        rgb(247 253 251 / 0.97) 0%,
-        rgb(247 253 251 / 0.92) calc(100% - 230px),
-        rgb(247 253 251 / 0.55) calc(100% - 110px),
+        rgb(1 13 9 / 0.96) 0%,
+        rgb(1 13 9 / 0.9) calc(100% - 230px),
+        rgb(1 13 9 / 0.5) calc(100% - 110px),
         transparent 100%
       );
     }
 
-    /* Claro atrás do chat, para o widget do plugin ler bem sobre a foto. */
+    /* Escuro atrás do chat, para o widget do plugin ler bem sobre a foto. */
     .hero-veil-right {
       width: calc(var(--page-edge) + 40px + var(--chat-col) + 70px);
       background: linear-gradient(
         to left,
-        rgb(247 253 251 / 0.88) 0%,
-        rgb(247 253 251 / 0.7) calc(100% - 150px),
+        rgb(1 13 9 / 0.9) 0%,
+        rgb(1 13 9 / 0.7) calc(100% - 150px),
         transparent 100%
       );
     }
   }
 
-  /* 1024–1279px: a janela é estreita; o grupo de impressoras desliza para a direita, sob o
+  /* 1024–1279px: a janela é estreita; o grupo de notebooks desliza para a direita, sob o
      chat, para não passar por trás do texto. */
   @media (min-width: 1024px) and (max-width: 1279px) {
     .hero-photo {

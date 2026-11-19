@@ -1,17 +1,17 @@
 {
   "ficha": 1,
-  "gerado": "2026-10-26T17:21:16.865Z",
+  "gerado": "2026-11-19T15:10:04.868Z",
   "origem": "docs/FICHA-LP.md",
   "padrao": "2.8.0",
   "cliente": "Print Master",
-  "produto": "Locação de impressoras",
+  "produto": "Locação de notebooks",
   "composicao": ["linhas", "processo", "aplicacoes", "diferenciais"],
   "site": {
     "brand": "Print Master",
     "brandShort": "Print Master",
-    "product": "Locação de impressoras",
+    "product": "Locação de notebooks",
     "context": "empresas",
-    "url": "https://printmaster.net.br/lp-locacao-de-impressoras-para-empresas/",
+    "url": "https://printmaster.net.br/lp-locacao-de-notebooks-para-empresas/",
     "address": "Rua C56 nº 65, Qd. 103, Lt. 05, Setor Sudoeste, Goiânia/GO, CEP 74.305-350",
     "privacyUrl": "",
     "whatsapp": "",
@@ -23,102 +23,71 @@
   "campanha": {
     "negatives": [],
     "forbidden": [],
-    "mainKeyword": "locação de impressoras",
-    "areaAtendida": "Goiânia/GO, confirmada pelo endereço; Brasília não confirmada",
+    "mainKeyword": "locação de notebooks",
+    "areaAtendida": "Goiânia/GO, confirmada pelo endereço",
     "onde": "selo",
     "familias": [
       {
         "nome": "locacao-aluguel",
         "termos": [
-          "aluguel de copiadora",
-          "aluguel de impressoras",
-          "locação de impressoras",
-          "locação de impressora",
-          "alugar impressora",
-          "empresa de aluguel de impressoras",
-          "empresas de locação de impressoras"
+          "locação de notebooks",
+          "locação de notebook",
+          "aluguel de notebooks",
+          "aluguel de notebook",
+          "alugar notebook",
+          "aluguel de notebook para empresas"
         ],
         "responde": "linhas"
       },
       {
-        "nome": "multifuncionais-copiadoras",
+        "nome": "marcas",
         "termos": [
-          "locação de multifuncional",
-          "aluguel de multifuncional",
-          "locação de multifuncionais",
-          "locação de impressora multifuncional",
-          "aluguel de copiadora"
+          "aluguel de notebook Lenovo",
+          "aluguel de notebook Dell",
+          "aluguel de notebook HP",
+          "locação de notebook Lenovo",
+          "aluguel de ThinkPad"
         ],
         "responde": "linhas"
       },
       {
-        "nome": "scanners",
-        "termos": ["aluguel de scanner", "locação de scanner"],
-        "responde": "linhas"
-      },
-      {
-        "nome": "impressao-colorida",
-        "termos": ["aluguel de impressora laser colorida"],
-        "responde": "linhas"
-      },
-      {
-        "nome": "marca-ricoh",
-        "termos": ["locação de impressora Ricoh"],
-        "responde": "linhas"
-      },
-      {
-        "nome": "outsourcing",
-        "termos": [
-          "outsourcing de impressão",
-          "outsourcing de impressoras",
-          "empresas de outsourcing de impressão",
-          "locação de impressoras outsourcing",
-          "serviço de outsourcing de impressão"
-        ],
-        "responde": null
+        "nome": "equipe-crescendo",
+        "termos": ["notebook para novos funcionários", "locação de notebooks para equipe"],
+        "responde": "aplicacoes"
       },
       {
         "nome": "goiania",
         "termos": [
-          "aluguel de impressoras Goiânia",
-          "aluguel de impressora Goiânia",
-          "locação de impressoras Goiânia",
-          "aluguel de impressora em Goiânia"
-        ],
-        "responde": null
-      },
-      {
-        "nome": "brasilia",
-        "termos": [
-          "locação de impressoras Brasília",
-          "aluguel de impressora Brasília",
-          "outsourcing de impressão em Brasília"
+          "aluguel de notebook Goiânia",
+          "locação de notebooks Goiânia",
+          "aluguel de notebook em Goiânia"
         ],
         "responde": null
       }
     ]
   },
-  "publico": ["Administrativo", "Compras", "TI", "Diretoria"],
+  "publico": ["Administrativo", "Compras", "TI", "Diretoria", "RH"],
   "marcas": {
-    "usarLogos": true,
-    "nomes": ["Ricoh", "Brother", "Canon", "Epson", "OKI", "Konica Minolta", "Zebra", "Kyocera"],
-    "autorizacao": "logos recortadas da arte que o próprio cliente publica no site atual; mockup aprovado em 26/10/2026"
+    "usarLogos": false,
+    "nomes": ["Dell", "Lenovo", "HP"],
+    "autorizacao": "marcas por extenso, como nos posts da campanha; sem logos enviadas"
   },
   "tokens": {
     "padrao": false,
     "cores": {
-      "primaria": "#064337",
-      "acao": "#027653",
-      "menta": "#61e5a9"
+      "fundo": "#010d09",
+      "acao": "#3ee39f",
+      "menta": "#67dfa7",
+      "amarelo": "#fed605"
     }
   },
   "conteudo": {
     "title": null,
-    "description": "Locação de impressoras para empresas em Goiânia: multifuncionais laser Ricoh, copiadoras e scanners com manutenção inclusa e suporte especializado.",
+    "description": "Locação de notebooks para empresas em Goiânia: Dell, Lenovo e HP sem investir na compra, com suporte especializado. ThinkPad T490 a partir de R$ 130,00.",
     "hero": {
-      "eyebrow": "Impressão corporativa",
-      "title": "Locação de impressoras para empresas",
-      "text": "Multifuncionais laser Ricoh, copiadoras e scanners para a rotina da sua empresa, com manutenção inclusa e sem investimento inicial.",
+      "eyebrow": "Tecnologia para sua equipe",
+      "title": "Locação de notebooks para empresas",
+      "text": "Notebooks Dell, Lenovo, HP e outras marcas para a sua equipe trabalhar desde o primeiro dia, sem investir na compra.",
       "points": [
         {
           "icon": "shield",
@@ -126,9 +95,9 @@
           "line2": "no mercado"
         },
         {
-          "icon": "wrench",
-          "line1": "Manutenção",
-          "line2": "inclusa"
+          "icon": "tag",
+          "line1": "Sem investir",
+          "line2": "na compra"
         },
         {
           "icon": "users",
@@ -139,16 +108,16 @@
     },
     "quote": {
       "eyebrow": "Soluções para sua empresa",
-      "title": "A impressão ideal para o ritmo da sua empresa.",
-      "text": "Locação de impressoras com tecnologia, manutenção e suporte para simplificar a rotina da sua empresa.",
+      "title": "Equipe sua empresa sem investir na compra.",
+      "text": "Locação de notebooks Dell, Lenovo, HP e outras marcas, com suporte especializado e proposta sob medida para o tamanho da sua equipe.",
       "trust": [
         {
-          "icon": "wrench",
-          "label": "Manutenção inclusa"
+          "icon": "tag",
+          "label": "Sem investir na compra"
         },
         {
           "icon": "users",
-          "label": "Suporte remoto e presencial"
+          "label": "Suporte especializado"
         },
         {
           "icon": "pin",
@@ -163,47 +132,39 @@
       "dataExport": "productLines",
       "data": "linhas.ts",
       "conteudo": {
-        "eyebrow": "Equipamentos para locação",
-        "title": "Impressoras, copiadoras e scanners para locação",
-        "text": "Encontre o equipamento ideal para a rotina da sua empresa.",
+        "eyebrow": "Notebooks para locação",
+        "title": "Notebooks corporativos para cada perfil de equipe",
+        "text": "Dell, Lenovo, HP e outras marcas para a rotina da sua empresa.",
         "help": {
           "text": "Precisa de ajuda para escolher?",
           "cta": "Fale com um especialista"
         },
-        "itemCta": "Solicitar orçamento",
-        "brandsLabel": "Soluções com marcas reconhecidas",
+        "itemCta": "Solicitar proposta",
+        "brandsLabel": "Locação de notebooks das principais marcas",
         "items": [
           {
-            "id": "multifuncionais",
-            "tag": "Multifuncionais",
-            "title": "Multifuncionais Ricoh",
-            "description": "Imprima, copie e digitalize com praticidade.",
-            "features": ["Modelos mono e coloridos", "Tecnologia laser"],
-            "photo": "Impressora multifuncional laser Ricoh M 320F"
+            "id": "thinkpad-t490",
+            "tag": "Black Friday",
+            "title": "Lenovo ThinkPad T490",
+            "description": "A linha corporativa da Lenovo para a rotina da sua equipe.",
+            "features": ["Intel Core i5 de 8ª geração", "Linha ThinkPad, da Lenovo"],
+            "photo": "Notebook Lenovo ThinkPad T490 aberto sobre bancada com luz verde"
           },
           {
-            "id": "copiadoras",
-            "tag": "Alta produtividade",
-            "title": "Copiadoras",
-            "description": "Mais agilidade para grandes volumes de cópias.",
-            "features": ["Alta produtividade", "Manutenção inclusa"],
-            "photo": "Copiadora multifuncional Ricoh MP 4055"
+            "id": "corporativos",
+            "tag": "Multimarcas",
+            "title": "Notebooks corporativos",
+            "description": "Modelos Dell, Lenovo e HP para o trabalho do dia a dia.",
+            "features": ["Dell, Lenovo e HP", "Para toda a equipe"],
+            "photo": "Notebook prata aberto e notebook grafite ao fundo, sobre luz verde"
           },
           {
-            "id": "scanners",
-            "tag": "Digitalização",
-            "title": "Scanners inteligentes",
-            "description": "Organize e digitalize documentos em rede.",
-            "features": ["Digitalização em rede", "Arquivo digital"],
-            "photo": "Scanner de documentos fi-7600"
-          },
-          {
-            "id": "conectados",
-            "tag": "Conectividade",
-            "title": "Impressão conectada",
-            "description": "Imprima pela rede e por dispositivos móveis.",
-            "features": ["Impressão pelo celular", "Conexão em rede"],
-            "photo": "Celular enviando impressão por rede sem fio para uma multifuncional Ricoh"
+            "id": "sob-medida",
+            "tag": "Sob consulta",
+            "title": "Configuração sob medida",
+            "description": "Indicamos o modelo certo para cada função da sua equipe.",
+            "features": ["Modelo por perfil de uso", "Outras marcas sob consulta"],
+            "photo": "Ilustração de notebook com controles de configuração na tela"
           }
         ]
       }
@@ -213,30 +174,30 @@
       "data": "processo.ts",
       "conteudo": {
         "eyebrow": "Como funciona",
-        "title": "Da escolha à impressão, cuidamos de cada etapa.",
-        "microcopy": "Manutenção e suporte inclusos",
-        "text": "Soluções sob medida para simplificar a rotina da sua empresa.",
+        "title": "Do pedido à entrega, cuidamos de cada etapa.",
+        "microcopy": "Sem investimento na compra",
+        "text": "Uma proposta sob medida para equipar a sua equipe sem complicação.",
         "cta": "Fale com um especialista",
         "steps": [
           {
             "id": "diagnostico",
             "title": "Diagnóstico",
-            "description": "Entendemos o volume e as necessidades de impressão da sua empresa."
+            "description": "Entendemos quantos notebooks sua equipe precisa e para qual rotina."
           },
           {
             "id": "proposta",
             "title": "Proposta sob medida",
-            "description": "Selecionamos os equipamentos e montamos sua proposta de locação."
+            "description": "Indicamos os modelos e montamos a sua proposta de locação."
           },
           {
-            "id": "instalacao",
-            "title": "Instalação",
-            "description": "Entregamos e configuramos tudo na rede da sua empresa."
+            "id": "entrega",
+            "title": "Entrega",
+            "description": "Levamos os notebooks até a sua empresa para a equipe começar."
           },
           {
             "id": "suporte",
-            "title": "Suporte e manutenção",
-            "description": "Assistência técnica remota ou presencial, com manutenção inclusa."
+            "title": "Suporte especializado",
+            "description": "Acompanhamos a sua equipe com suporte durante toda a locação."
           }
         ]
       }
@@ -245,34 +206,34 @@
       "dataExport": "applications",
       "data": "aplicacoes.ts",
       "conteudo": {
-        "eyebrow": "Soluções por segmento",
-        "title": "Impressão para a rotina de cada negócio",
-        "text": "Soluções de impressão, cópia e digitalização para empresas de todos os portes e segmentos.",
+        "eyebrow": "Soluções por necessidade",
+        "title": "Notebooks para cada momento da sua empresa",
+        "text": "Locação de notebooks para empresas de todos os portes, do primeiro colaborador à equipe inteira.",
         "cta": "Encontre a solução ideal",
         "items": [
           {
-            "id": "contabilidades",
-            "label": "Contabilidades",
-            "description": "Impressão e digitalização para a rotina de escritórios de contabilidade.",
-            "photo": "Mesa de contabilidade com notebook, calculadora e multifuncional ao fundo"
+            "id": "escritorios",
+            "label": "Escritórios e administrativo",
+            "description": "Notebooks para a rotina administrativa, financeira e comercial.",
+            "photo": "Ícone de prédio comercial em neon sobre círculo de luz verde"
           },
           {
-            "id": "coworkings",
-            "label": "Coworkings",
-            "description": "Equipamentos compartilhados para quem trabalha em espaços de coworking.",
-            "photo": "Coworking com pessoas trabalhando e multifuncional ao fundo"
+            "id": "novos-colaboradores",
+            "label": "Novos colaboradores",
+            "description": "Equipamento pronto para quem está chegando à sua equipe.",
+            "photo": "Ícone de equipe em neon sobre círculo de luz verde"
           },
           {
-            "id": "escolas",
-            "label": "Escolas e faculdades",
-            "description": "Impressão e cópias para escolas, faculdades e cursinhos.",
-            "photo": "Estudante escrevendo em biblioteca com multifuncional ao lado"
+            "id": "projetos",
+            "label": "Projetos temporários",
+            "description": "Mais notebooks para demandas com prazo definido, sem comprar.",
+            "photo": "Ícone de relógio em neon sobre círculo de luz verde"
           },
           {
-            "id": "advocacia",
-            "label": "Escritórios de advocacia",
-            "description": "Impressão e digitalização de documentos para escritórios de advocacia.",
-            "photo": "Mesa de escritório de advocacia com livros, balança da justiça e multifuncional"
+            "id": "treinamentos",
+            "label": "Treinamentos e eventos",
+            "description": "Notebooks para turmas, treinamentos internos e eventos corporativos.",
+            "photo": "Ícone de tela de apresentação em neon sobre círculo de luz verde"
           }
         ]
       }
@@ -282,35 +243,35 @@
       "data": "diferenciais.ts",
       "conteudo": {
         "eyebrow": "Soluções Print Master",
-        "titleLines": ["Impressão inteligente", "para sua empresa."],
-        "text": "Tecnologia, suporte e gestão para imprimir melhor, reduzir custos e simplificar a rotina da sua empresa.",
-        "cta": "Solicite uma proposta",
-        "scene": "Multifuncional Ricoh em escritório iluminado com plantas e estações de trabalho",
+        "titleLines": ["Tecnologia para o", "próximo passo da sua empresa."],
+        "text": "Locação de notebooks Dell, Lenovo, HP e outras marcas, com suporte especializado e sem investir na compra. Sua equipe cresce, a Print Master acompanha.",
+        "cta": "Solicite sua proposta",
+        "scene": "Notebook Lenovo ThinkPad T490 aberto sobre bancada iluminada em verde",
         "reasons": [
           {
             "icon": "tag",
-            "title": "Redução de custos",
-            "description": "Economia em compra, manutenção, toners e suprimentos."
+            "title": "Sem investimento inicial",
+            "description": "Equipe sua empresa sem comprar nem imobilizar capital."
+          },
+          {
+            "icon": "users",
+            "title": "Equipe que cresce",
+            "description": "Notebooks para quem está chegando, na hora certa."
+          },
+          {
+            "icon": "layers",
+            "title": "Multimarcas",
+            "description": "Dell, Lenovo, HP e outras marcas para cada perfil."
           },
           {
             "icon": "wrench",
-            "title": "Assistência técnica",
-            "description": "Suporte remoto ou presencial quando precisar."
-          },
-          {
-            "icon": "zap",
-            "title": "Alta performance",
-            "description": "Modelos laser e multifuncionais, mono ou coloridos."
-          },
-          {
-            "icon": "sliders",
-            "title": "Gestão inteligente",
-            "description": "Contabilização e gerenciamento eletrônico de documentos."
+            "title": "Suporte especializado",
+            "description": "Atendimento técnico durante toda a locação."
           },
           {
             "icon": "shield",
-            "title": "Sem investimento inicial",
-            "description": "Use equipamentos sem comprar ou imobilizar capital."
+            "title": "Desde 2003",
+            "description": "Mais de 20 anos em soluções para empresas."
           }
         ]
       }
@@ -322,15 +283,15 @@
   "fora": {
     "vitrine": {
       "veredicto": "insuficiente",
-      "falta": "há 4 categorias de equipamento; a vitrine pede 6 a 24 produtos"
+      "falta": "só há um modelo com especificação (ThinkPad T490); a vitrine pede 6 a 24 produtos"
     },
     "especificacoes": {
       "veredicto": "insuficiente",
-      "falta": "faltam modelos com especificações comparáveis (velocidade, formato, volume mensal)"
+      "falta": "faltam modelos com especificações comparáveis (processador, memória, armazenamento, tela)"
     },
     "identificar": {
       "veredicto": "insuficiente",
-      "falta": "o comercial não informou os 6 dados que pede para dimensionar uma locação"
+      "falta": "o comercial não informou os dados que pede para dimensionar uma locação de notebooks"
     },
     "situacoes": {
       "veredicto": "insuficiente",
@@ -338,7 +299,7 @@
     },
     "segmentos": {
       "veredicto": "insuficiente",
-      "falta": "são 6 contextos de uso sem vocabulário nem 3 equipamentos por setor; a seção pede 7 setores completos"
+      "falta": "não há setores com vocabulário próprio nem modelos indicados por setor"
     },
     "clientes": {
       "veredicto": "insuficiente",

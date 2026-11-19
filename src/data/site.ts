@@ -8,11 +8,11 @@ export const site = {
   /** Nome curto usado em frases como "Por que a …" (entrada 2). */
   brandShort: 'Print Master',
   /** Produto principal, no plural (entrada 3). Vai na tagline do header e no H1. */
-  product: 'Locação de impressoras',
+  product: 'Locação de notebooks',
   /** Contexto de uso (entrada 4). Completa o H1 e o title. */
   context: 'empresas',
   /** URL absoluta da página no ar (entrada 10). Usada em canonical e og:url. */
-  url: 'https://printmaster.net.br/lp-locacao-de-impressoras-para-empresas/',
+  url: 'https://printmaster.net.br/lp-locacao-de-notebooks-para-empresas/',
   /** Endereço completo com CEP (entrada 9). Footer e JSON-LD. */
   address: 'Rua C56 nº 65, Qd. 103, Lt. 05, Setor Sudoeste, Goiânia/GO, CEP 74.305-350',
   /** Link da política de privacidade do cliente (entrada 10). Vazio esconde o link, mas a nota de LGPD continua. */
@@ -39,7 +39,7 @@ export const title = `${site.product} para ${site.context} | ${site.brand}`
 
 /** Meta description (≤ 160 caracteres). Ajuste o texto, mantendo marcas e o apoio técnico. */
 export const description =
-  'Locação de impressoras para empresas em Goiânia: multifuncionais laser Ricoh, copiadoras e scanners com manutenção inclusa e suporte especializado.'
+  'Locação de notebooks para empresas em Goiânia: Dell, Lenovo e HP sem investir na compra, com suporte especializado. ThinkPad T490 a partir de R$ 130,00.'
 
 /**
  * Campanha que leva tráfego para esta LP (entrada 15). Quem clica digitou a
@@ -51,7 +51,7 @@ export const campaign = {
    * estiver no H1 e no title — aceita maiúscula, acento, plural e outra ordem.
    * `null` quando a LP não tem campanha definida; vazio é entrada não preenchida.
    */
-  mainKeyword: 'locação de impressoras',
+  mainKeyword: 'locação de notebooks',
   /**
    * Negativas **de oferta** da campanha — o que a empresa não vende. O `check:lp`
    * avisa quando o texto da página usa uma delas. As de intenção (emprego, curso)

@@ -7,7 +7,8 @@ interface Props {
 
 const { tone = 'dark', marker = true, class: className = '' } = Astro.props
 
-const toneClasses = tone === 'light' ? 'text-neutral-light/70' : 'text-ink-soft'
+// A página toda é escura: `dark` (padrão) é o eyebrow de seção, `light` o de bloco em destaque.
+const toneClasses = tone === 'light' ? 'text-white/80' : 'text-white/60'
 ---
 
 <span
@@ -17,6 +18,6 @@ const toneClasses = tone === 'light' ? 'text-neutral-light/70' : 'text-ink-soft'
     ${toneClasses} ${className}
   `}
 >
-  {marker && <span class="h-[6px] w-[6px] bg-accent-orange" />}
+  {marker && <span class="h-[6px] w-[6px] bg-neon shadow-[0_0_8px_1px_rgba(62,227,159,0.7)]" />}
   <slot />
 </span>

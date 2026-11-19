@@ -1,17 +1,16 @@
 /**
  * Dados da seção "Linhas de produto" (biblioteca B2, fase: oferta).
  *
- * Variante local da Print Master (mockup aprovado em 26/10/2026, docs/BRIEFING.md):
- * 4 cards brancos com foto grande, etiqueta, 2 características e botão de orçamento,
- * sem card escuro, e a faixa de marcas abaixo do grid. O contrato repinado está em
- * `lp.manifest.json`.
+ * Variante local da Print Master, LP de notebooks (19/11/2026, docs/BRIEFING.md): 3 cards
+ * escuros com a foto em palco, etiqueta, 2 características e botão de proposta; o card em
+ * oferta ganha a linha de preço em amarelo (`promo`). Abaixo do grid, as marcas por extenso
+ * (o cliente não enviou logos). O contrato repinado está em `lp.manifest.json`.
  */
 import type { Photo } from '@data/types'
 
 import linha1 from '@assets/linhas/linha-1.png'
 import linha2 from '@assets/linhas/linha-2.png'
 import linha3 from '@assets/linhas/linha-3.png'
-import marcasPhoto from '@assets/linhas/marcas.png'
 
 export interface ProductLine {
   id: string
@@ -20,56 +19,59 @@ export interface ProductLine {
   description: string
   photo: Photo
   features: readonly [string, string]
+  /** Linha de preço em destaque (oferta). Opcional. */
+  promo?: string
 }
 
 export const productLines = {
-  eyebrow: 'Equipamentos para locação',
-  title: 'Impressoras, copiadoras e scanners para locação',
-  text: 'Encontre o equipamento ideal para a rotina da sua empresa.',
+  eyebrow: 'Notebooks para locação',
+  title: 'Notebooks corporativos para cada perfil de equipe',
+  text: 'Dell, Lenovo, HP e outras marcas para a rotina da sua empresa.',
   /** Ajuda ao lado do cabeçalho. */
   help: {
     text: 'Precisa de ajuda para escolher?',
     cta: 'Fale com um especialista',
   },
   /** Rótulo do botão de cada card. */
-  itemCta: 'Solicitar orçamento',
-  /** Rótulo da faixa de marcas abaixo do grid (só aparece com 4+ logos). */
-  brandsLabel: 'Soluções com marcas reconhecidas',
+  itemCta: 'Solicitar proposta',
+  /** Faixa de marcas abaixo do grid, por extenso. */
+  brandsLabel: 'Locação de notebooks das principais marcas',
+  brandNames: ['Dell', 'Lenovo', 'HP'],
+  brandsMore: 'e outras marcas',
   items: [
     {
-      id: 'multifuncionais',
-      tag: 'Multifuncionais',
-      title: 'Multifuncionais Ricoh',
-      description: 'Imprima, copie e digitalize com praticidade.',
-      photo: { src: linha1, alt: 'Impressora multifuncional laser Ricoh M 320F' },
-      features: ['Modelos mono e coloridos', 'Tecnologia laser'],
-    },
-    {
-      id: 'copiadoras',
-      tag: 'Alta produtividade',
-      title: 'Copiadoras',
-      description: 'Mais agilidade para grandes volumes de cópias.',
-      photo: { src: linha2, alt: 'Copiadora multifuncional Ricoh MP 4055' },
-      features: ['Alta produtividade', 'Manutenção inclusa'],
-    },
-    {
-      id: 'scanners',
-      tag: 'Digitalização',
-      title: 'Scanners inteligentes',
-      description: 'Organize e digitalize documentos em rede.',
-      photo: { src: linha3, alt: 'Scanner de documentos fi-7600' },
-      features: ['Digitalização em rede', 'Arquivo digital'],
-    },
-    {
-      id: 'conectados',
-      tag: 'Conectividade',
-      title: 'Impressão conectada',
-      description: 'Imprima pela rede e por dispositivos móveis.',
+      id: 'thinkpad-t490',
+      tag: 'Black Friday',
+      title: 'Lenovo ThinkPad T490',
+      description: 'A linha corporativa da Lenovo para a rotina da sua equipe.',
+      promo: 'A partir de R$ 130,00*',
       photo: {
-        src: marcasPhoto,
-        alt: 'Celular enviando impressão por rede sem fio para uma multifuncional Ricoh',
+        src: linha1,
+        alt: 'Notebook Lenovo ThinkPad T490 aberto sobre bancada com luz verde',
       },
-      features: ['Impressão pelo celular', 'Conexão em rede'],
+      features: ['Intel Core i5 de 8ª geração', 'Linha ThinkPad, da Lenovo'],
+    },
+    {
+      id: 'corporativos',
+      tag: 'Multimarcas',
+      title: 'Notebooks corporativos',
+      description: 'Modelos Dell, Lenovo e HP para o trabalho do dia a dia.',
+      photo: {
+        src: linha2,
+        alt: 'Notebook prata aberto e notebook grafite ao fundo, sobre luz verde',
+      },
+      features: ['Dell, Lenovo e HP', 'Para toda a equipe'],
+    },
+    {
+      id: 'sob-medida',
+      tag: 'Sob consulta',
+      title: 'Configuração sob medida',
+      description: 'Indicamos o modelo certo para cada função da sua equipe.',
+      photo: {
+        src: linha3,
+        alt: 'Ilustração de notebook com controles de configuração na tela',
+      },
+      features: ['Modelo por perfil de uso', 'Outras marcas sob consulta'],
     },
   ],
 } as const satisfies {
@@ -79,6 +81,8 @@ export const productLines = {
   help: { text: string; cta: string }
   itemCta: string
   brandsLabel: string
+  brandNames: readonly string[]
+  brandsMore: string
   items:
     | readonly [ProductLine, ProductLine, ProductLine]
     | readonly [ProductLine, ProductLine, ProductLine, ProductLine]

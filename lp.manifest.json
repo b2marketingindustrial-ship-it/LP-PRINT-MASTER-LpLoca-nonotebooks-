@@ -1,12 +1,13 @@
 {
   "standardVersion": "2.8.0",
-  "composedAt": "2026-10-26",
+  "composedAt": "2026-11-19",
   "library": "../Projetos B2/LP-STARTER-B2/sections",
   "primitives": [
     "BrandCarousel"
   ],
   "phases": {
     "oferta": [
+      "ofertas",
       "linhas"
     ],
     "apoio": [
@@ -21,6 +22,56 @@
   },
   "sections": [
     {
+      "slug": "ofertas",
+      "id": "ofertas",
+      "title": "Ofertas em destaque (posts da campanha)",
+      "phase": "oferta",
+      "component": "OfferHighlights.astro",
+      "data": "ofertas.ts",
+      "dataExport": "offers",
+      "carriesNavy": false,
+      "tone": "light",
+      "rhythm": "open",
+      "tones": [
+        "light"
+      ],
+      "rhythms": [
+        "open",
+        "even"
+      ],
+      "ctas": [
+        "ofertas-destaque",
+        "ofertas-{item.id}"
+      ],
+      "contract": {
+        "itemsPath": "posts",
+        "itemsMin": 2,
+        "itemsMax": 2,
+        "requiredItemFields": [
+          "id",
+          "label",
+          "cta",
+          "photo"
+        ],
+        "maxLength": {
+          "text": 170,
+          "item.label": 70
+        }
+      },
+      "assets": [
+        {
+          "dir": "ofertas",
+          "match": "post-",
+          "files": "2 posts da campanha",
+          "spec": "JPG 1080×1350 (4:5), arte do post como publicada",
+          "width": 1080,
+          "height": 1350,
+          "alpha": false
+        }
+      ],
+      "localVariant": "Seção local da LP de notebooks (19/11/2026), fora da biblioteca B2: os dois posts da campanha em destaque, com a oferta de Black Friday em texto (docs/BRIEFING.md)"
+    },
+    {
       "slug": "linhas",
       "id": "linhas",
       "title": "Linhas de produto",
@@ -30,7 +81,7 @@
       "dataExport": "productLines",
       "carriesNavy": false,
       "tone": "light",
-      "rhythm": "open",
+      "rhythm": "even",
       "tones": [
         "light",
         "gray"
@@ -71,22 +122,13 @@
           "dir": "linhas",
           "match": "linha-",
           "files": "3 a 4 fotos de produto",
-          "spec": "PNG recortado 800×600, fundo transparente",
+          "spec": "PNG 800×600 (4:3), notebook sobre fundo escuro ou recortado",
           "width": 800,
           "height": 600,
           "alpha": true
-        },
-        {
-          "dir": "linhas",
-          "match": "marcas",
-          "files": "marcas.png",
-          "spec": "Foto das embalagens das marcas, 1280×800",
-          "width": 1280,
-          "height": 800,
-          "alpha": false
         }
       ],
-      "localVariant": "Print Master 26/10/2026 — mockup: 2 características por card, sem card escuro, ajuda no cabeçalho e faixa de marcas (docs/BRIEFING.md)"
+      "localVariant": "Print Master notebooks 19/11/2026 — cards escuros, 2 características, linha de preço opcional (promo) e marcas por extenso (docs/BRIEFING.md)"
     },
     {
       "slug": "processo",
@@ -126,7 +168,7 @@
         }
       },
       "assets": [],
-      "localVariant": "Print Master 26/10/2026 — mockup: cabeçalho claro e 4 cards verde-escuros numerados, sem ícones (docs/BRIEFING.md)"
+      "localVariant": "Print Master notebooks 19/11/2026 — cabeçalho escuro e 4 cards com degradê verde, número em amarelo, sem ícones (docs/BRIEFING.md)"
     },
     {
       "slug": "aplicacoes",
@@ -171,14 +213,14 @@
       "assets": [
         {
           "dir": "aplicacoes",
-          "files": "4 fotos",
-          "spec": "JPG/PNG 1200×900 (4:3), equipamento em operação",
+          "files": "4 artes",
+          "spec": "JPG 1200×1000 (6:5), arte neon do segmento",
           "width": 1200,
-          "height": 900,
+          "height": 1000,
           "alpha": false
         }
       ],
-      "localVariant": "Print Master 26/10/2026 — mockup: cabeçalho à esquerda com link, fotos 6:5 numeradas e painel verde-escuro (docs/BRIEFING.md)"
+      "localVariant": "Print Master notebooks 19/11/2026 — cabeçalho à esquerda com link, artes neon 6:5 numeradas em amarelo e painel escuro (docs/BRIEFING.md)"
     },
     {
       "slug": "diferenciais",
@@ -227,7 +269,7 @@
           "alpha": false
         }
       ],
-      "localVariant": "Print Master 26/10/2026 — mockup: bloco sobre a foto do escritório com a multifuncional, sem a pessoa recortada (docs/BRIEFING.md)"
+      "localVariant": "Print Master notebooks 19/11/2026 — bloco sobre o ThinkPad T490 do post de Black Friday, cards escuros sobrepostos (docs/BRIEFING.md)"
     }
   ]
 }
