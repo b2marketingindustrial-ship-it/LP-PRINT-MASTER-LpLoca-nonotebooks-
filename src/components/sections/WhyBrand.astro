@@ -5,7 +5,9 @@
  * Variante local da Print Master, LP de notebooks (19/11/2026, docs/BRIEFING.md):
  * bloco em largura total sobre o ThinkPad T490 do post de Black Friday (preto à esquerda,
  * já na imagem), texto sobre o preto com a última linha do título em menta e 5 cards escuros
- * sobrepostos à base. Continua sendo o bloco escuro da segunda metade, antes da conversão.
+ * sobre a base da foto. Continua sendo o bloco escuro da segunda metade, antes da conversão.
+ * Desde 24/11/2026 o bloco é reto e encosta na Cotação, sem curva nem faixa de fundo entre os
+ * dois: os cards ficam dentro dele e o `-mb-8` absorve o `pb-8` do ritmo `overlap`.
  */
 import { Picture } from 'astro:assets'
 import Section from '@components/Section.astro'
@@ -21,7 +23,7 @@ const lastLine = why.titleLines.length - 1
 
 <Section id="diferenciais" tone={tone} rhythm={rhythm} container={false} class="relative" data-why>
   {/* Bloco em largura total sobre a foto */}
-  <div class="why-hero relative overflow-hidden rounded-[40px] border border-mint/15 bg-black lg:rounded-[64px]">
+  <div class="why-hero relative -mb-8 overflow-hidden bg-black">
     <Picture
       src={why.scene.src}
       alt={why.scene.alt}
@@ -77,52 +79,52 @@ const lastLine = why.titleLines.length - 1
         </button>
       </div>
     </div>
-  </div>
 
-  {/* Cards sobrepostos à base do bloco */}
-  <div class="relative z-10 mx-auto -mt-20 max-w-page px-6 lg:px-10">
-    <ul
-      class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0"
-      aria-label={why.eyebrow}
-    >
-      {why.reasons.map((reason) => (
-        <li class="why-card group relative flex w-[78%] shrink-0 snap-start flex-col gap-2.5 overflow-hidden rounded-2xl border border-white/10 bg-night-700/95 p-4 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.9)] backdrop-blur-md transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-neon/50 hover:shadow-[0_32px_60px_-28px_rgba(62,227,159,0.4)] sm:w-[44%] lg:w-auto">
-          <span
-            aria-hidden="true"
-            class="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-neon transition-transform duration-300 ease-out group-hover:scale-x-100"
-          />
-          <div class="flex items-center gap-2.5">
-            <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neon/10 text-neon ring-1 ring-neon/30 transition-colors duration-300 group-hover:bg-neon group-hover:text-night-950">
-              <Icon name={reason.icon} class="size-[18px]" />
-            </span>
-            <h3 class="line-clamp-2 flex min-h-[2.5em] items-center font-display text-[14px] leading-[1.25] font-extrabold text-white">
-              {reason.title}
-            </h3>
-          </div>
-          <p class="line-clamp-2 min-h-[3.25em] font-sans text-[13px] leading-relaxed text-white/65">
-            {reason.description}
-          </p>
-        </li>
-      ))}
-    </ul>
+    {/* Cards sobre a base da foto, dentro do bloco */}
+    <div class="relative z-10 mx-auto -mt-20 max-w-page px-6 pb-12 lg:px-10 lg:pb-16">
+      <ul
+        class="why-track scroll-track -mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-3 lg:mx-0 lg:grid lg:grid-cols-5 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0"
+        aria-label={why.eyebrow}
+      >
+        {why.reasons.map((reason) => (
+          <li class="why-card group relative flex w-[78%] shrink-0 snap-start flex-col gap-2.5 overflow-hidden rounded-2xl border border-white/10 bg-night-700/95 p-4 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.9)] backdrop-blur-md transition-[transform,box-shadow,border-color] duration-300 ease-out hover:-translate-y-1.5 hover:border-neon/50 hover:shadow-[0_32px_60px_-28px_rgba(62,227,159,0.4)] sm:w-[44%] lg:w-auto">
+            <span
+              aria-hidden="true"
+              class="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-neon transition-transform duration-300 ease-out group-hover:scale-x-100"
+            />
+            <div class="flex items-center gap-2.5">
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-xl bg-neon/10 text-neon ring-1 ring-neon/30 transition-colors duration-300 group-hover:bg-neon group-hover:text-night-950">
+                <Icon name={reason.icon} class="size-[18px]" />
+              </span>
+              <h3 class="line-clamp-2 flex min-h-[2.5em] items-center font-display text-[14px] leading-[1.25] font-extrabold text-white">
+                {reason.title}
+              </h3>
+            </div>
+            <p class="line-clamp-2 min-h-[3.25em] font-sans text-[13px] leading-relaxed text-white/65">
+              {reason.description}
+            </p>
+          </li>
+        ))}
+      </ul>
 
-    <div class="mt-3 flex items-center justify-center gap-3 lg:hidden">
-      <button
-        type="button"
-        data-why-prev
-        aria-label="Diferencial anterior"
-        class="flex size-10 items-center justify-center rounded-full border border-white/20 bg-night-700 text-white transition-colors hover:border-neon hover:text-neon"
-      >
-        <Icon name="chevron-right" class="size-4 rotate-180" />
-      </button>
-      <button
-        type="button"
-        data-why-next
-        aria-label="Próximo diferencial"
-        class="flex size-10 items-center justify-center rounded-full border border-white/20 bg-night-700 text-white transition-colors hover:border-neon hover:text-neon"
-      >
-        <Icon name="chevron-right" class="size-4" />
-      </button>
+      <div class="mt-3 flex items-center justify-center gap-3 lg:hidden">
+        <button
+          type="button"
+          data-why-prev
+          aria-label="Diferencial anterior"
+          class="flex size-10 items-center justify-center rounded-full border border-white/20 bg-night-700 text-white transition-colors hover:border-neon hover:text-neon"
+        >
+          <Icon name="chevron-right" class="size-4 rotate-180" />
+        </button>
+        <button
+          type="button"
+          data-why-next
+          aria-label="Próximo diferencial"
+          class="flex size-10 items-center justify-center rounded-full border border-white/20 bg-night-700 text-white transition-colors hover:border-neon hover:text-neon"
+        >
+          <Icon name="chevron-right" class="size-4" />
+        </button>
+      </div>
     </div>
   </div>
 </Section>
