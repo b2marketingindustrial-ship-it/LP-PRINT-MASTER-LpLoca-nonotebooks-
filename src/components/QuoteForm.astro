@@ -5,13 +5,14 @@
  *
  * Visual dos posts da campanha de notebooks (19/11/2026, docs/BRIEFING.md): fundo escuro
  * alternado (`bg-night-800`, o tom "gray" da composição) com brilho verde, título com o trecho
- * final em menta e selos com divisórias. A pedido do cliente (LP de impressoras, 26/10/2026), a
- * coluna do formulário e o lugar do botão de WhatsApp ficam como espaços vazios reservados: no
+ * final em menta e selos com divisórias. A coluna do formulário é um espaço reservado: no
  * WordPress o plugin de atendimento preenche o formulário; fora dele, o texto cru do shortcode é
- * apagado pelo script do Hero.
+ * apagado pelo script do Hero. Abaixo do texto, o botão "Chamar no WhatsApp" (`cotacao-whatsapp`),
+ * de volta em 24/11/2026: na LP de impressoras ele tinha virado espaço vazio a pedido do cliente.
  */
+import Button from './Button.astro'
 import Icon from './Icon.astro'
-import { quote } from '../data/content'
+import { cta, quote } from '../data/content'
 
 const isDev = import.meta.env.DEV
 
@@ -89,8 +90,14 @@ const titleBefore = at >= 0 ? quote.title.slice(0, at) : quote.title
         </p>
 
         <p class="mt-8 font-sans text-[16px] font-medium text-white/85">{quote.whatsappLead}</p>
-        {/* Espaço vazio no lugar do botão de WhatsApp (a pedido do cliente) */}
-        <div aria-hidden="true" class="mt-3 h-[60px] w-full max-w-[350px]"></div>
+        <Button
+          cta="cotacao-whatsapp"
+          iconName="whatsapp"
+          iconPosition="left"
+          class="mt-4 w-full rounded-full shadow-[0_18px_40px_-14px_rgba(62,227,159,0.75)] sm:w-auto"
+        >
+          {cta.whatsapp}
+        </Button>
 
         <span aria-hidden="true" class="mt-9 block h-px bg-white/15"></span>
 

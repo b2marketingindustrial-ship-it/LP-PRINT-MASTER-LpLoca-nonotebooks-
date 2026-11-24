@@ -88,7 +88,7 @@ export const quote = {
   /** Trecho final do título em menta (precisa estar contido em `title`). */
   highlight: 'sem investir na compra.',
   text: 'Locação de notebooks Dell, Lenovo, HP e outras marcas, com suporte especializado e proposta sob medida para o tamanho da sua equipe.',
-  /** Chamada acima do espaço reservado ao WhatsApp. */
+  /** Chamada acima do botão de WhatsApp. */
   whatsappLead: 'Prefere falar com a nossa equipe?',
   trust: [
     { icon: 'tag', label: 'Sem investir na compra' },

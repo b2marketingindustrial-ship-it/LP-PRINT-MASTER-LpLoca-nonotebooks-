@@ -208,8 +208,7 @@ for (const f of astroFiles) {
       'id="cotacao"',
       'lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]',
       'order-2 w-full lg:order-1',
-      // Sem 'data-cta="cotacao-whatsapp"' desde 26/10/2026: a pedido do cliente o botão de
-      // WhatsApp da Cotação virou espaço vazio reservado (docs/BRIEFING.md).
+      'cta="cotacao-whatsapp"',
     ],
     'Footer.astro': [
       'navy-premium border-t border-white/15',
